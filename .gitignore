@@ -1,0 +1,7 @@
+Frontend/node_modules/
+Frontend/build/
+Frontend/dist/
+Backend/node_modules/
+Backend/dist/
+Backend/build/
+Backend/.npm/
