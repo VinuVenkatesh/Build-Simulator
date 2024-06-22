@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/VinuVenkatesh/Build-Simulator/issues"
   },
-  "homepage": "https://github.com/VinuVenkatesh/Build-Simulator#readme"
+  "homepage": "https://github.com/VinuVenkatesh/Build-Simulator#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^6.7.0",
+    "mongoose": "^8.4.3"
+  }
 }
