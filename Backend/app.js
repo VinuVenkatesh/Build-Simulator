@@ -1,11 +1,19 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
+const router = require('./routes/router');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const privateKey = fs.readFileSync(path.join(__dirname, 'server.key'), 'utf8');
+const certificate = fs.readFileSync(path.join(__dirname, 'server.cert'), 'utf8');
+const credentials = { key: privateKey, cert: certificate };
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const httpsServer = https.createServer(credentials, app);
+app.get('/favicon.ico', (req, res) => res.status(204));
+app.use(router)
+
+httpsServer.listen(3000, () => {
+  console.log('HTTPS Server running on port 3000');
+});
